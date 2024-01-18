@@ -1,10 +1,10 @@
 ## FastAPI + NextJS14 + GoogleAuth Starter Kit.
 
-Sign up at Google Consile, configure oauth and get your credentials json file.
+Sign up at Google Console, configure oauth and get your credentials json file.
 
 In Google redirect uri add: http://localhost:3000/api/google/auth and your vercel domain url as well.
 
-Now rename the file to client.json and place in root directory.
+Now rename the file to client.json and place in /api directory. Now you can remove the placeholder-client-secret.json file.
 
 ### Run the Project Locally
 
