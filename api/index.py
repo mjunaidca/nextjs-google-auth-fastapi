@@ -19,10 +19,14 @@ app = FastAPI()
 # CLIENT_SECRETS_FILE = "client_secret.json"
 CLIENT_SECRETS_FILE = os.path.join(dir_path, "client_secret.json")
 SCOPES = ['openid', 'https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile']
-REDIRECT_URI = 'https://nextjs-flow.vercel.app/api/google/auth'
+REDIRECT_URI = 'http://localhost:3000/api/google/auth'
 
-FRONTEND_CLIENT_SUCCESS_URI = 'https://nextjs-flow.vercel.app/user'
-FRONTEND_CLIENT_FAILURE_URI = 'https://nextjs-flow.vercel.app'
+FRONTEND_CLIENT_SUCCESS_URI = 'http://localhost:3000/user'
+FRONTEND_CLIENT_FAILURE_URI = 'http://localhost:3000'
+# REDIRECT_URI = 'https://nextjs-flow.vercel.app/api/google/auth'
+
+# FRONTEND_CLIENT_SUCCESS_URI = 'https://nextjs-flow.vercel.app/user'
+# FRONTEND_CLIENT_FAILURE_URI = 'https://nextjs-flow.vercel.app'
 
 # SessionMiddleware must be installed to access request.session
 app.add_middleware(SessionMiddleware, secret_key="!secret")
@@ -76,7 +80,7 @@ async def auth(request: Request):
         # After running nextjs project uncomment the following code and comment out the above return line
 
         # Set tokens in cookies or send them in a secure manner
-        response = RedirectResponse(url='https://nextjs-flow.vercel.app/user')
+        response = RedirectResponse(url=FRONTEND_CLIENT_SUCCESS_URI)
         response.set_cookie(key="email", value=idinfo['email'], httponly=True)
         response.set_cookie(key="name", value=idinfo['name'], httponly=True)
         response.set_cookie(key="picture", value=idinfo['picture']  , httponly=True)
