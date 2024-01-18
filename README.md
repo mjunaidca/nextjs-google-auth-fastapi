@@ -1,6 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## FastAPI + NextJS14 + GoogleAuth Starter Kit.
 
-## Getting Started
+Sign up at Google Consile, configure oauth and get your credentials json file.
+
+In Google redirect uri add: http://localhost:3000/api/google/auth and your vercel domain url as well.
+
+Now rename the file to client.json and place in root directory.
+
+### Run the Project Locally
 
 First, run the development server:
 
